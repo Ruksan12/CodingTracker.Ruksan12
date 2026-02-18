@@ -1,4 +1,4 @@
-﻿namespace CodingTracker.Ruksan12
+﻿namespace CodingTracker.Ruksan12.Models
 {
     internal class CodingSession
     {

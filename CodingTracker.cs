@@ -1,4 +1,8 @@
-﻿namespace CodingTracker.Ruksan12
+﻿using CodingTracker.Ruksan12.Controller;
+using CodingTracker.Ruksan12.Data;
+using CodingTracker.Ruksan12.Menu;
+
+namespace CodingTracker.Ruksan12
 {
     internal class CodingTracker
     {

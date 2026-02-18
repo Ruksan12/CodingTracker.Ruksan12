@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace CodingTracker
+namespace CodingTracker.Ruksan12.Menu
 {
     internal class Validation
     {

@@ -1,7 +1,8 @@
-﻿using CodingTracker.Ruksan12;
+﻿using CodingTracker.Ruksan12.Controller;
+using CodingTracker.Ruksan12.Models;
 using Spectre.Console;
 
-namespace CodingTracker
+namespace CodingTracker.Ruksan12.Menu
 {
     internal class UserInput
     {
@@ -76,15 +77,15 @@ namespace CodingTracker
 
         private void InsertRecord()
         {
-            var startTime = GetDateInput("Please insert the date and time of start: (Format: dd-MM-yyyy HH:mm). Type 0 to return to main menu");
+            var startTime = GetDateInput("Please insert the date and time of start: (Format: YYYY-MM-DD HH:mm). Type 0 to return to main menu");
             if (startTime == "0") return;
 
-            var endTime = GetDateInput("Please insert the date and time of end: (Format: dd-MM-yyyy HH:mm). Type 0 to return to main menu", startTime);
+            var endTime = GetDateInput("Please insert the date and time of end: (Format: YYYY-MM-DD HH:mm). Type 0 to return to main menu", startTime);
             if (endTime == "0") return;
 
             // Calculate duration
-            DateTime start = DateTime.ParseExact(startTime, "dd-MM-yyyy HH:mm", null);
-            DateTime end = DateTime.ParseExact(endTime, "dd-MM-yyyy HH:mm", null);
+            DateTime start = DateTime.ParseExact(startTime, "yyyy-MM-dd HH:mm", null);
+            DateTime end = DateTime.ParseExact(endTime, "yyyy-MM-dd HH:mm", null);
             TimeSpan duration = end - start;
 
             var session = new CodingSession
@@ -134,14 +135,14 @@ namespace CodingTracker
                     return;
                 }
 
-                var startTime = GetDateInput("Please insert the new date and time of start: (Format: dd-MM-yyyy HH:mm). Type 0 to return to main menu");
+                var startTime = GetDateInput("Please insert the new date and time of start: (Format: yyyy-MM-dd HH:mm). Type 0 to return to main menu");
                 if (startTime == "0") return;
 
-                var endTime = GetDateInput("Please insert the new date and time of end: (Format: dd-MM-yyyy HH:mm). Type 0 to return to main menu", startTime);
+                var endTime = GetDateInput("Please insert the new date and time of end: (Format: yyyy-MM-dd HH:mm). Type 0 to return to main menu", startTime);
                 if (endTime == "0") return;
 
-                DateTime start = DateTime.ParseExact(startTime, "dd-MM-yyyy HH:mm", null);
-                DateTime end = DateTime.ParseExact(endTime, "dd-MM-yyyy HH:mm", null);
+                DateTime start = DateTime.ParseExact(startTime, "yyyy-MM-dd HH:mm", null);
+                DateTime end = DateTime.ParseExact(endTime, "yyyy-MM-dd HH:mm", null);
                 TimeSpan duration = end - start;
 
                 session.StartTime = start;
@@ -168,15 +169,15 @@ namespace CodingTracker
 
                 if (dateInput == "0") return "0";
 
-                if (!_validation.ValidateDate(dateInput, "dd-MM-yyyy HH:mm"))
+                if (!_validation.ValidateDate(dateInput, "yyyy-MM-dd HH:mm"))
                 {
-                    AnsiConsole.MarkupLine("[red]Invalid date format. Use dd-MM-yyyy HH:mm[/]");
+                    AnsiConsole.MarkupLine("[red]Invalid date format. Use yyyy-MM-dd HH:mm[/]");
                     continue;
                 }
 
                 if (startDate != null)
                 {
-                    if (!_validation.ValidateDateRange(startDate, dateInput, "dd-MM-yyyy HH:mm"))
+                    if (!_validation.ValidateDateRange(startDate, dateInput, "yyyy-MM-dd HH:mm"))
                     {
                         AnsiConsole.MarkupLine("[red]End time must be after start time[/]");
                         continue;

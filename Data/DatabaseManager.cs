@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using Dapper;
 
-namespace CodingTracker.Ruksan12
+namespace CodingTracker.Ruksan12.Data
 {
     internal class DatabaseManager
     {

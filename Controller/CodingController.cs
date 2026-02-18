@@ -1,7 +1,8 @@
-﻿using Dapper;
+﻿using CodingTracker.Ruksan12.Models;
+using Dapper;
 using Microsoft.Data.Sqlite;
 
-namespace CodingTracker.Ruksan12
+namespace CodingTracker.Ruksan12.Controller
 {
     internal class CodingController
     {
